@@ -15,6 +15,9 @@ public class ColourTable {
         this.size = 0;
     }
 
+    public ColourTable(){
+    }
+
 
     public int add(Color colour) {
         int index = this.size;
