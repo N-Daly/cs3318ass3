@@ -6,9 +6,6 @@ import java.awt.Color;
 public class ColourTableTest {
 
 
-    /**
-     * not passing arguments to the constructor should give an error
-     * */
     @Test
     public void addAColor() {
         Color colourBlack = Color.black;
