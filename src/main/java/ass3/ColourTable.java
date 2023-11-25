@@ -8,7 +8,7 @@ public class ColourTable {
     }
 
 
-    public int add(Color colourBlack) {
+    public int add(Color colour) {
         return -1;
     }
 }
