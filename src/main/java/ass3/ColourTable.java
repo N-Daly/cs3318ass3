@@ -15,7 +15,8 @@ public class ColourTable {
         this.size = 0;
     }
 
-    public ColourTable(){
+    public ColourTable() throws IllegalAccessException{
+        throw new IllegalAccessException();
     }
 
 
