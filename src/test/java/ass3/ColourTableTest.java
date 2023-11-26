@@ -51,4 +51,25 @@ public class ColourTableTest {
         assertEquals(0, index);
 
     }
+
+    @Test
+    public void exceedCapacityOfTableSize8(){
+        ColourTable table = new ColourTable(8);
+
+        Color[] colours = {Color.black,Color.blue,Color.cyan,Color.darkGray,
+                            Color.gray,Color.yellow,Color.orange,Color.green};
+        for(Color col: colours){
+            table.add(col);
+        }
+
+        boolean exceptionThrown = false;
+        try{
+            //this should give an exception
+            table.add(Color.magenta);
+        }catch (Exception e){
+            exceptionThrown = true;
+        }
+        assertTrue(exceptionThrown);
+
+    }
 }
