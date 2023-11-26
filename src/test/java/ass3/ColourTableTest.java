@@ -39,4 +39,16 @@ public class ColourTableTest {
         assertTrue(exceptionThrown);
     }
 
+    @ParameterizedTest()
+    @ValueSource(ints = {2,4,8,16,32,64,128,256,512,1024})
+    public void validInputsToConstructor(int tableSize) {
+        //make a table
+        ColourTable table = new ColourTable(tableSize);
+
+        //add a colour
+        Color colourBlack = Color.black;
+        int index = table.add(colourBlack);
+        assertEquals(0, index);
+
+    }
 }
