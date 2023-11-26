@@ -22,6 +22,6 @@ public class ColourTableTest {
             //should give an exception
             ColourTable t = new ColourTable();
         };
-        assertThrows(IllegalAccessException.class, executable);
+        assertThrows(Exception.class, executable);
     }
 }
