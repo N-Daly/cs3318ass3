@@ -9,6 +9,7 @@ import java.util.Set;
 public class ColourTable {
 
     private int size;
+    private int MAX_CAPACITY;
     private List<Color> structure;
 
     public ColourTable(int tableSize) {
@@ -19,6 +20,7 @@ public class ColourTable {
             throw new IllegalArgumentException();
         }
 
+        this.MAX_CAPACITY = tableSize;
         this.structure = new ArrayList<Color>(tableSize);
         this.size = 0;
     }
@@ -29,6 +31,9 @@ public class ColourTable {
 
 
     public int add(Color colour) {
+
+        if (this.size >= this.MAX_CAPACITY){throw new ColourTableFullException();}
+
         int index = this.size;
         //this is unnecessary but explicit
         this.structure.add(index, colour);
