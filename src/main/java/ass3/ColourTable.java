@@ -32,6 +32,10 @@ public class ColourTable {
 
     public int add(Color colour) {
 
+        //if its already in the table then it has an index and just return that
+        int indexOfColour = this.findIndexOf(colour);
+        if(indexOfColour != -1){return indexOfColour;}
+
         if (this.size >= this.MAX_CAPACITY){throw new ColourTableFullException();}
 
         int index = this.size;
@@ -39,5 +43,18 @@ public class ColourTable {
         this.structure.add(index, colour);
         this.size ++;
         return index;
+    }
+
+    /**
+     * @return the index of the colour argument as the client would see it, or -1
+     * **/
+    private int findIndexOf(Color targetColour){
+        for (int i = 0; i < this.size; i++) {
+            Color element = this.structure.get(i);
+            if (element.equals(targetColour)){
+                return i;
+            }
+        }
+        return -1;
     }
 }
