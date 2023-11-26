@@ -10,10 +10,11 @@ public class ColourTable {
 
     private int size;
     private List<Color> structure;
-    private final Set<Integer> allowableTableSizes = Set.of( new Integer[] {2,4,8,16,32,64,128,256,512,1024});
 
     public ColourTable(int tableSize) {
         //check the table size is valid
+        Set<Integer> allowableTableSizes = Set.of( new Integer[] {2,4,8,16,32,64,128,256,512,1024});
+
         if(!allowableTableSizes.contains(tableSize)){
             throw new IllegalArgumentException();
         }
@@ -22,8 +23,8 @@ public class ColourTable {
         this.size = 0;
     }
 
-    public ColourTable() throws IllegalAccessException{
-        throw new IllegalAccessException();
+    public ColourTable(){
+        throw new IllegalArgumentException();
     }
 
 
