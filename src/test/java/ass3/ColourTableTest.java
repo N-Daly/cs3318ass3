@@ -2,6 +2,8 @@ package ass3;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.awt.Color;
@@ -24,4 +26,17 @@ public class ColourTableTest {
         };
         assertThrows(Exception.class, executable);
     }
+
+    @ParameterizedTest()
+    @ValueSource(ints = {0,1,3,5,7,9,15,17,33,63,65,127,129,250,1025})
+    public void badInputsToConstructor(int invalidPaletteSize){
+        boolean exceptionThrown = false;
+        try{
+            ColourTable table  = new ColourTable(invalidPaletteSize);
+        }catch (Exception e){
+            exceptionThrown = true;
+        }
+        assertTrue(exceptionThrown);
+    }
+
 }
