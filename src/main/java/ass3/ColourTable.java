@@ -64,14 +64,14 @@ public class ColourTable {
         return -1;
     }
 
-    private boolean checkValidIndex(int index){
-        if (index <0 | index > this.size){return false;}
-        return true;
+    private void throwExceptionForInvalidIndex(int index){
+        if (index <0 | index > this.size){
+            throw new IndexOutOfBoundsException();
+        }
     }
     public int[] getRGB(int i) {
-        if (!checkValidIndex(i)){throw new IndexOutOfBoundsException();}
-        //the index must be valid
-        Color theColor = this.structure.get(i);
+        //let the simpler method do the simple stuff
+        Color theColor = this.getsRGB(i);
         // get RGB parts
         int red = theColor.getRed();
         int blue = theColor.getBlue();
@@ -80,9 +80,8 @@ public class ColourTable {
     }
 
     public Color getsRGB(int index) {
-        if (!checkValidIndex(index)){throw new IndexOutOfBoundsException();}
+        throwExceptionForInvalidIndex(index);
         //the index must be valid
-        Color theColor = this.structure.get(index);
-        return  theColor;
+        return this.structure.get(index);
     }
 }
