@@ -115,5 +115,25 @@ public class ColourTableTest {
         }
     }
 
+    @Test()
+    public void addColoursAsRGBIntegersGetASsRGBFromTableSize8() {
+        ColourTable table = new ColourTable(8);
+
+        Color[] colours = {Color.black, Color.blue, Color.cyan, Color.darkGray,
+                Color.gray, Color.yellow, Color.orange, Color.green};
+
+        for (Color col : colours) {
+            // get RGB parts
+            int red = col.getRed();
+            int blue = col.getBlue();
+            int green = col.getGreen();
+            //store RGB parts
+            int index = table.add(red, green, blue);
+            //get Color object
+            Color storedValue = table.getsRGB(index);
+
+            assertEquals(col, storedValue);
+        }
+    }
 
 }

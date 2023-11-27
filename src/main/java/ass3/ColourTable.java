@@ -79,4 +79,7 @@ public class ColourTable {
         return new int[] {red, green, blue};
     }
 
+    public Color getsRGB(int index) {
+        return null;
+    }
 }
