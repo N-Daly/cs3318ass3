@@ -80,6 +80,9 @@ public class ColourTable {
     }
 
     public Color getsRGB(int index) {
-        return null;
+        if (!checkValidIndex(index)){throw new IndexOutOfBoundsException();}
+        //the index must be valid
+        Color theColor = this.structure.get(index);
+        return  theColor;
     }
 }
