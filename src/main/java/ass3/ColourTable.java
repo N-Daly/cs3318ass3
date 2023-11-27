@@ -45,7 +45,8 @@ public class ColourTable {
         return index;
     }
 
-    public void add(int red, int green, int blue) {
+    public int add(int red, int green, int blue) {
+        return -1;
     }
 
     /**
