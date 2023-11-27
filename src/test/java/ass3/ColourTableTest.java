@@ -136,4 +136,22 @@ public class ColourTableTest {
         }
     }
 
+    @Test()
+    public void indexOfRepeatedlyAddedColorTableSize4(){
+        ColourTable table = new ColourTable(8);
+
+        Color[] colours = {Color.blue,Color.cyan,Color.darkGray, Color.gray};
+        for(Color col: colours){
+            table.add(col);
+        }
+        //add blue repeatedly
+        for (int i = 0; i < 10; i++) {
+            table.add(Color.blue);
+        }
+
+        //I know since blue was the first colour added it should be at index zero
+        Color storedValue = table.getsRGB(0);
+        assertEquals(Color.blue, storedValue);
+
+    }
 }
