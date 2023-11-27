@@ -46,7 +46,9 @@ public class ColourTable {
     }
 
     public int add(int red, int green, int blue) {
-        return -1;
+        Color newColour = new Color(red,green,blue);
+        //do as little work possible
+        return this.add(newColour);
     }
 
     /**
@@ -62,8 +64,19 @@ public class ColourTable {
         return -1;
     }
 
+    private boolean checkValidIndex(int index){
+        if (index <0 | index > this.size){return false;}
+        return true;
+    }
     public int[] getRGB(int i) {
-        return new int[3];
+        if (!checkValidIndex(i)){throw new IndexOutOfBoundsException();}
+        //the index must be valid
+        Color theColor = this.structure.get(i);
+        // get RGB parts
+        int red = theColor.getRed();
+        int blue = theColor.getBlue();
+        int green = theColor.getGreen();
+        return new int[] {red, green, blue};
     }
 
 }
