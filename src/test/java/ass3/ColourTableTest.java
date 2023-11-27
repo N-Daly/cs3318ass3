@@ -93,5 +93,31 @@ public class ColourTableTest {
         assertFalse(exceptionThrown);
     }
 
+    @Test()
+    public void addColoursAsRGBIntegerstoTableSize8(){
+        ColourTable table = new ColourTable(8);
+
+        Color[] colours = {Color.black,Color.blue,Color.cyan,Color.darkGray,
+                Color.gray,Color.yellow,Color.orange,Color.green};
+        //
+        int i =  0;
+        for(Color col: colours){
+            // get RGB parts
+            int red = col.getRed();
+            int blue = col.getBlue();
+            int green = col.getGreen();
+
+            table.add(red, green, blue);
+            // i know that the ith colour added will be in index i
+            int[] storedValue = table.getRGB(i);
+            int[] expected = {red, green, blue};
+
+            assertArrayEquals(expected, storedValue);
+
+            i++;
+
+        }
+    }
+
 
 }

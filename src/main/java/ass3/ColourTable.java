@@ -9,7 +9,7 @@ import java.util.Set;
 public class ColourTable {
 
     private int size;
-    private int MAX_CAPACITY;
+    final private int MAX_CAPACITY;
     private List<Color> structure;
 
     public ColourTable(int tableSize) {
@@ -45,6 +45,9 @@ public class ColourTable {
         return index;
     }
 
+    public void add(int red, int green, int blue) {
+    }
+
     /**
      * @return the index of the colour argument as the client would see it, or -1
      * **/
@@ -57,4 +60,9 @@ public class ColourTable {
         }
         return -1;
     }
+
+    public int[] getRGB(int i) {
+        return new int[3];
+    }
+
 }
