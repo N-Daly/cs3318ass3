@@ -10,7 +10,7 @@ public class ColourTable {
 
     private int size;
     final private int MAX_CAPACITY;
-    private List<Color> structure;
+    private final List<Color> structure;
 
     public ColourTable(int tableSize) {
         //check the table size is valid
