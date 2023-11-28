@@ -8,6 +8,10 @@ import java.util.Set;
 
 public class ColourTable {
 
+    public static void main(String[] args) {
+        ColourTable table = new ColourTable(2);
+        table.add(256,256,256);
+    }
     private int size;
     final private int MAX_CAPACITY;
     private final List<Color> structure;
@@ -46,7 +50,16 @@ public class ColourTable {
     }
 
     public int add(int red, int green, int blue) {
-        Color newColour = new Color(red,green,blue);
+        //the inputs maybe invalid
+
+        Color newColour;
+        try {
+             newColour = new Color(red, green, blue);
+        }catch (IllegalArgumentException e){
+            //catch and rethrow for encapsulation
+            throw new IllegalArgumentException();
+        }
+
         //do as little work possible
         return this.add(newColour);
     }
