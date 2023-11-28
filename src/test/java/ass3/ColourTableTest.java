@@ -94,7 +94,7 @@ public class ColourTableTest {
     }
 
     @Test()
-    public void addColoursAsRGBIntegerstoTableSize8(){
+    public void addColoursAsRGBIntegersToTableSize8(){
         ColourTable table = new ColourTable(8);
 
         Color[] colours = {Color.black,Color.blue,Color.cyan,Color.darkGray,

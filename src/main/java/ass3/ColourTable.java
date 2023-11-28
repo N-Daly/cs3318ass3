@@ -21,7 +21,7 @@ public class ColourTable {
         }
 
         this.MAX_CAPACITY = tableSize;
-        this.structure = new ArrayList<Color>(tableSize);
+        this.structure = new ArrayList<>(tableSize);
         this.size = 0;
     }
 
