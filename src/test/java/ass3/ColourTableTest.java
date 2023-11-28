@@ -13,7 +13,7 @@ public class ColourTableTest {
     public void addAColor() {
         Color colourBlack = Color.black;
         ColourTable table = new ColourTable(2);
-        Object index = (Object) table.add(colourBlack);
+        Object index = table.add(colourBlack);
         assertEquals(0, index);
 
     }
