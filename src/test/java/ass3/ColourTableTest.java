@@ -154,4 +154,19 @@ public class ColourTableTest {
         assertEquals(Color.blue, storedValue);
 
     }
+
+    @ParameterizedTest()
+    @ValueSource(ints = {-1,-100,256,257,Integer.MAX_VALUE, Integer.MIN_VALUE})
+    public void addBadGreenArgument(int invalidNumber){
+        int  blue = 128;
+        int red = 128;
+        int green = invalidNumber;
+
+        Executable executable = ()->{
+          ColourTable table = new ColourTable(2);
+          table.add(red, green, blue);
+        };
+
+        assertThrows(Exception.class,executable );
+    }
 }
