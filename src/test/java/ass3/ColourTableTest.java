@@ -169,4 +169,34 @@ public class ColourTableTest {
 
         assertThrows(Exception.class,executable );
     }
+
+    @ParameterizedTest()
+    @ValueSource(ints = {-1,-100,256,257,Integer.MAX_VALUE, Integer.MIN_VALUE})
+    public void addBadRedArgument(int invalidNumber){
+        int  blue = 128;
+        int red = invalidNumber;
+        int green = 128;
+
+        Executable executable = ()->{
+            ColourTable table = new ColourTable(2);
+            table.add(red, green, blue);
+        };
+
+        assertThrows(Exception.class,executable );
+    }
+
+    @ParameterizedTest()
+    @ValueSource(ints = {-1,-100,256,257,Integer.MAX_VALUE, Integer.MIN_VALUE})
+    public void addBadBlueArgument(int invalidNumber){
+        int  blue = invalidNumber;
+        int red = 127;
+        int green = 128;
+
+        Executable executable = ()->{
+            ColourTable table = new ColourTable(2);
+            table.add(red, green, blue);
+        };
+
+        assertThrows(Exception.class,executable );
+    }
 }
