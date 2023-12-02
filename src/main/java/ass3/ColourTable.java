@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class ColourTable {
 
-       private int size;
+    private int size;
     final private int MAX_CAPACITY;
     private final List<Color> structure;
 
@@ -45,6 +45,16 @@ public class ColourTable {
         return index;
     }
 
+    /**
+     * Adds a given rgb colour to the colour table
+     *
+     * @param red red colour component,0-255
+     * @param green blue colour component,0-255
+     * @param blue blue colour component,0-255
+     * @return the index at which this colour can be retrieved from in the colour table
+     *
+     * @throws IllegalArgumentException if the colour components are not all integers between 0-255 inclusive
+    **/
     public int add(int red, int green, int blue) {
         //the inputs maybe invalid
 
