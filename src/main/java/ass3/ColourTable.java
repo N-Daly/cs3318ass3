@@ -54,6 +54,7 @@ public class ColourTable {
      * @return the index at which this colour can be retrieved from in the colour table
      *
      * @throws IllegalArgumentException if the colour components are not all integers between 0-255 inclusive
+     * @throws ColourTableFullException if the colour table is at capacity
     **/
     public int add(int red, int green, int blue) {
         //the inputs maybe invalid
@@ -61,9 +62,12 @@ public class ColourTable {
         Color newColour;
         try {
              newColour = new Color(red, green, blue);
-        }catch (IllegalArgumentException e){
-            //catch and rethrow for encapsulation
+        }//catch and rethrow for encapsulation
+        //I know its ugly but there shouldn't be more than two cases
+        catch (IllegalArgumentException e){
             throw new IllegalArgumentException();
+        }catch (ColourTableFullException e){
+            throw new ColourTableFullException();
         }
 
         //do as little work possible
