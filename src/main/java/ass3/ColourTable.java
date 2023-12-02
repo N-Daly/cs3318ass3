@@ -8,11 +8,7 @@ import java.util.Set;
 
 public class ColourTable {
 
-    public static void main(String[] args) {
-        ColourTable table = new ColourTable(2);
-        table.add(256,256,256);
-    }
-    private int size;
+       private int size;
     final private int MAX_CAPACITY;
     private final List<Color> structure;
 
