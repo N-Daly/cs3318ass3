@@ -87,24 +87,32 @@ public class ColourTable {
         return -1;
     }
 
-    private void throwExceptionForInvalidIndex(int index){
-        if (index <0 | index > this.size){
-            throw new IndexOutOfBoundsException();
-        }
-    }
     public int[] getRGB(int i) {
-        //let the simpler method do the simple stuff
-        Color theColor = this.getsRGB(i);
-        // get RGB parts
-        int red = theColor.getRed();
-        int blue = theColor.getBlue();
-        int green = theColor.getGreen();
-        return new int[] {red, green, blue};
+        //this might be irritating but I don't want the client to know anything
+        // so if a helper function throws an exception just catch and rethrow it
+
+        try {
+            //let the simpler method do the simple stuff
+            Color theColor = this.getsRGB(i);
+            // get RGB parts
+            int red = theColor.getRed();
+            int blue = theColor.getBlue();
+            int green = theColor.getGreen();
+            return new int[] {red, green, blue};
+
+        }catch (IndexOutOfBoundsException e){
+            throw e;
+        }
     }
 
     public Color getsRGB(int index) {
-        throwExceptionForInvalidIndex(index);
-        //the index must be valid
-        return this.structure.get(index);
+        try {
+            //the list API throws an unchecked IndexOutOfBounds
+            //which is the behaviour I want, so just rethrow it for encapsulation
+            //then the client doesn't know the implementation
+            return this.structure.get(index);
+        }catch (IndexOutOfBoundsException e){
+            throw e;
+        }
     }
 }
