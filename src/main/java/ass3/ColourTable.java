@@ -12,6 +12,12 @@ public class ColourTable {
     final private int MAX_CAPACITY;
     private final List<Color> structure;
 
+    /**
+     * create an empty Colour Table of a specific size
+     *
+     * @param tableSize the maximum capacity of the table. Valid table sizes are {@code {2,4,8,16,32,64,128,256,512,1024}} only.
+     * @throws IllegalArgumentException if the table size given is invalid
+     * **/
     public ColourTable(int tableSize) {
         //check the table size is valid
         Set<Integer> allowableTableSizes = Set.of( new Integer[] {2,4,8,16,32,64,128,256,512,1024});
@@ -87,8 +93,14 @@ public class ColourTable {
         return -1;
     }
 
+    /**
+     * get the RGB colour at index i
+     * @return an integer array of the red,green,blue colour components at a given index
+     * @throws IndexOutOfBoundsException if an invalid index is passed i.e. negative or greater
+     * than the number of elements in the colour table
+     * **/
     public int[] getRGB(int i) {
-        //this might be irritating but I don't want the client to know anything
+        //this might be irritating, but I don't want the client to know anything
         // so if a helper function throws an exception just catch and rethrow it
 
         try {
@@ -105,6 +117,12 @@ public class ColourTable {
         }
     }
 
+    /**
+     * get the sRGB colour at index i
+     * @return the java.awt.Color instance at a given index
+     * @throws IndexOutOfBoundsException if an invalid index is passed i.e. negative or greater
+     * than the number of elements in the colour table
+     * **/
     public Color getsRGB(int index) {
         try {
             //the list API throws an unchecked IndexOutOfBounds
