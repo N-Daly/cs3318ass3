@@ -199,4 +199,12 @@ public class ColourTableTest {
 
         assertThrows(Exception.class,executable );
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0,1,2,3,4,5})
+    public void getFromEmptyTableSize4(int invalidIndex){
+        ColourTable table = new ColourTable(4);
+        Executable executable = () -> {table.getRGB(invalidIndex);};
+        assertThrows(Exception.class,executable);
+    }
 }
